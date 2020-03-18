@@ -1,0 +1,59 @@
+@import '../const';
+
+.ei-navbar {
+  border-bottom: 1px solid rgba($purple, 0.1);
+  background: $white;
+  height: 64px;
+
+  .container {
+    width: 100%;
+    padding: 0 .875rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .trigger {
+      padding-right: .65rem;
+      visibility: hidden;
+      & > svg {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.ei-navbar-fixed{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 800;
+  min-width: 320px;
+}
+
+.ei-sidebar-full+.main-wrap > .ei-navbar-fixed {
+  transition: left 450ms ease;
+}
+
+@media (min-width: 1200px) {
+  .ei-sidebar-full + .main-wrap > .ei-navbar-fixed {
+    left: 340px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .trigger {
+    visibility: visible !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .ei-navbar {
+    padding: 0 22px;
+  }
+}

@@ -1,0 +1,79 @@
+@import '../const';
+
+.ei-button {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-nunito;
+
+  &-content {
+    font-size: 16px;
+  }
+}
+
+.ei-button-icon {
+  border: 1px solid rgba($purple, 0.1);
+  border-radius: 7px;
+  background-color: $dark-white;
+  color: $font-color-grey;
+  transition: background-color .3s, color .3s;
+
+  &:hover {
+    background-color: #ffffff;
+    color: $font-color-purple;
+  }
+}
+
+.ei-button-with-icon {
+  width: 100%;
+}
+
+.ei-button-flat {
+  background-color: rgba($font-color-purple, 0);
+  border: 1px solid rgba($font-color-purple, 0.4);
+  border-radius: 7px;
+  color: $font-color-purple;
+  transition: background-color .3s, color .3s;
+  padding-right: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+
+  & > .ei-button-content {
+    font-size: 12px;
+  }
+
+  &:hover {
+    color: $dark-white;
+    background-color: rgba($font-color-purple, 1);
+  }
+}
+
+.ei-button-standart {
+  background-color: $font-color-purple;
+  border: 1px solid rgba($font-color-purple, 0.4);
+  border-radius: 7px;
+  color: $dark-white;
+  padding-right: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+  transition: background-color .3s;
+
+  & > .ei-button-content {
+    font-size: 12px;
+  }
+
+  &:hover {
+    background-color: rgba($font-color-purple, 0.8);
+  }
+}
+
+.ei-button-icon-size-st {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,12 +1,13 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div class="ei-dashboard">
+    Text
   </div>
 </template>
 
 <script>
 
 export default {
+
 }
 </script>
 

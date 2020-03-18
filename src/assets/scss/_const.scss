@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+$dark-purple:   #526484;
+$purple:        #773bff;
+$light-purple:  #854fff;
+$white:         #f5f6fa;
+$dark-white:    #e5e9f2;
+$blue:          #526484;
+
+$font: "Montserrat", Helvetica, Arial, sans-serif !default;
+$font-nunito: Nunito;
+
+$font-size-small:       .675rem;
+$font-size-standart:    .875rem;
+$font-size-normal:      1rem;
+$font-size-large:       1.25rem;
+
+$font-weight-small:       300;
+$font-weight-standart:    400;
+$font-weight-large:       500;
+$font-weight-xl:          600;
+
+$font-color-default:  #8094ae;
+$font-color-purple:   #6576ff;      
+$font-color-grey:     #526484;
+$font-color-d-grey:   #6e82a5;
+
+$z-index-small:       10;
+$z-index-standart:    100;
+$z-index-large:       1000;
+$z-index-overlay:     6666;
