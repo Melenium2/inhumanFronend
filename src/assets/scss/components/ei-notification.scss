@@ -1,0 +1,72 @@
+@import '../const';
+
+.ei-notification {
+  &-body {
+    .ei-dropdown-body {
+      font-size: $font-size-standart;
+      color: $font-color-default;
+      width: 350px;
+    }
+
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-top: 3px solid $font-color-purple;
+    border-bottom: 1px solid $dark-white;
+
+    .checker {
+      color: $font-color-purple;
+      cursor: pointer;
+    }
+  }
+
+  &-item-container {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 1rem .5rem 1rem;
+    border-bottom: 1px solid $dark-white;
+    cursor: pointer;
+    transition: all .4s;
+
+    i {
+      font-size: 24px;
+      width: 36px;  
+    }
+
+    .message {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &-empty {
+    h4 {
+      opacity: 0.3;
+    }
+  }
+
+  &-info {
+    background-color: #cce5ff;
+    color: #004085;
+  }
+
+  &-question {
+    background-color: #FFF2CD;
+    color: #856404;
+  }
+
+  &-times {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+}

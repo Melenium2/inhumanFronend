@@ -16,12 +16,14 @@
   }
 
   &-wrap {
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
+    // justify-content: space-between;
 
     .trigger {
-      color: $font-color-d-grey;
+      color: $font-color-grey;
       width: 35px;
       height: 35px;
       padding: .4rem;
@@ -71,14 +73,11 @@
   left: 0;
   z-index: 800;
   min-width: 320px;
-}
-
-.ei-sidebar-full+.main-wrap > .ei-navbar-fixed {
   transition: left 450ms ease;
 }
 
 @media (min-width: 1200px) {
-  .ei-sidebar-full + .main-wrap > .ei-navbar-fixed {
+   .ei-navbar-fixed {
     left: 340px;
   }
 }

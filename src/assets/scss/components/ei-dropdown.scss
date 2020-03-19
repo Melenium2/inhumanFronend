@@ -1,0 +1,31 @@
+@import '../const';
+
+.ei-dropdown {
+  position: relative;
+  cursor: default;
+
+  &-trigger {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &-body {
+    margin-top: .33rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 12px 1px rgba(44,55,130,0.15);
+    z-index: $z-index-large;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  &-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+

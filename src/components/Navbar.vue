@@ -6,14 +6,19 @@
           <awesome-icon icon="bars" size="lg"></awesome-icon>
         </i>
         <h1>Some-content</h1>
+        <ei-notification></ei-notification>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import EiNotification from './Ei-notification'
 
 export default {
+  components: {
+    EiNotification
+  },
   data: () => ({
     isTriggered: false
   }),
