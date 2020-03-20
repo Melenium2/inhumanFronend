@@ -39,7 +39,7 @@
           <div class="ei-sidebar-content">
             <ul class="menu">
               <li v-for="(item, id) in menu" :key="id" class="menu-item">
-                <a href :class="{ 'item-active': item.active }">
+                <a :href="item.path" :class="{ 'item-active': item.active }">
                   <span class="icon">
                     <awesome-icon :icon="item.icon"></awesome-icon>
                   </span>
@@ -94,7 +94,19 @@ export default {
 				active: false
 			}
 		]
-	})
+  }),
+  methods: {
+    setActiveButton() {
+      this.menu = this.menu.map(el => {
+          if (el.path == this.$route.path) el.active = true
+          else el.active = false
+          return el
+      })
+    }
+  },
+  mounted() {
+    this.setActiveButton()
+  }
 }
 </script>
 

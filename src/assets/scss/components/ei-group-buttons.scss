@@ -1,0 +1,27 @@
+@import '../const';
+
+.ei-group-buttons {
+  clear: both;
+  display: flex;
+
+  :nth-child(n+2) {
+    margin-left: .5rem;
+  }
+}
+
+.ei-group-item {
+    padding: .5rem;
+    font-weight: 500;
+    color: $font-color-grey;
+    cursor: pointer;
+    transition: .2s color ease-out;
+
+    &-active {
+        color: $font-color-purple;
+        border-bottom: 1.5px solid $font-color-purple;
+    }
+
+    &:hover {
+        border-bottom: 1.5px solid $font-color-purple;
+    }
+}
