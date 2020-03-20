@@ -27,4 +27,11 @@ const router = new VueRouter({
   routes
 });
 
+router.afterEach(() => {
+  let loader = document.getElementById('infinity')
+  let loaderChrome = document.getElementById('infinityChorme')
+  if (loader) loader.style.display = 'none'
+  if (loaderChrome) loaderChrome.style.display = 'none'
+})
+
 export default router;
