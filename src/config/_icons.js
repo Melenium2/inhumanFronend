@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faCaretLeft, faChartPie, faCoins,
 faNetworkWired, faPaperPlane, faHistory, faPlus,
 faExternalLinkAlt, faUser, faAngleDoubleUp, faBell,
-faInfoCircle, faQuestionCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+faInfoCircle, faQuestionCircle, faTimesCircle, faAngleDown,
+faCogs, faSignature, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars, faCaretLeft, faChartPie, faCoins, faNetworkWired,
   faPaperPlane, faHistory, faPlus, faExternalLinkAlt, faUser,
-  faAngleDoubleUp, faBell, faInfoCircle, faQuestionCircle, faTimesCircle)
+  faAngleDoubleUp, faBell, faInfoCircle, faQuestionCircle, faTimesCircle,
+  faAngleDown, faCogs, faSignature, faSignOutAlt)
 
 Vue.component('awesome-icon', FontAwesomeIcon)

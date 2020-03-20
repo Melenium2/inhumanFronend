@@ -20,6 +20,15 @@
     overflow: hidden;
     background-color: #ffffff;
     transition: transform 0.3s, opacity 0.3s;
+
+    &-header {
+      border-top: 3px solid $font-color-purple;
+      border-bottom: 1px solid $dark-white;
+    }
+
+    &-footer {
+      border-top: 1px solid $dark-white;
+    }
   }
 
   &-active {

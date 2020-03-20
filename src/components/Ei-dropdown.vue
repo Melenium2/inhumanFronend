@@ -1,5 +1,5 @@
 <template>
-  <div class="ei-dropdown">
+  <div class="ei-dropdown" v-click-outside="close">
     <div ref="trigger" class="ei-dropdown-trigger" @click="trigger"><slot name="trigger" /></div>
     <div ref="dropdown" class="ei-dropdown-body" :class="{'ei-dropdown-active': triggered}" :style="styles">
       <div v-if="$slots.header" class="ei-dropdown-body-header"><slot name="header" /></div>
@@ -10,8 +10,12 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
 
 export default {
+  directives: { 
+    ClickOutside
+  },
   data: () => ({
     triggered: false,
     styles: 0
@@ -19,6 +23,9 @@ export default {
   methods: {
     trigger() {
       this.triggered = !this.triggered
+    },
+    close() {
+      if (this.triggered) this.triggered = false
     },
     calculateStyles() {
       let client = this.$refs.dropdown.getClientRects()[0]

@@ -2,7 +2,7 @@
   <div class="ei-notification">
     <ei-dropdown class="ei-notification-body">
       <div slot="trigger">
-        <ei-button type="icon" icon="bell" size="st"></ei-button>
+        <ei-button type="icon" icon="bell" size="st" flat></ei-button>
       </div>
       <div slot="header">
         <div class="ei-notification-header">

@@ -29,6 +29,10 @@
 
 .ei-button-with-icon {
   width: 100%;
+
+  .ei-button-content {
+    margin-left: .5rem;
+  }
 }
 
 .ei-button-flat {
@@ -37,7 +41,6 @@
   border-radius: 7px;
   color: $font-color-purple;
   transition: background-color .3s, color .3s;
-  padding-right: 9px;
   font-weight: 700;
   letter-spacing: 0.06rem;
 
@@ -67,6 +70,15 @@
 
   &:hover {
     background-color: rgba($font-color-purple, 0.8);
+  }
+}
+
+.ei-button-default {
+  color: $font-color-d-grey;
+  transition: color .3s;
+
+  &:hover {
+    color: $font-color-purple;
   }
 }
 
