@@ -40,7 +40,6 @@ export default {
 	},
 	created() {
 		this.children = this.$children
-		console.log(this.children)
 	}
 }
 </script>

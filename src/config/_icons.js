@@ -5,11 +5,11 @@ import { faBars, faCaretLeft, faChartPie, faCoins,
 faNetworkWired, faPaperPlane, faHistory, faPlus,
 faExternalLinkAlt, faUser, faAngleDoubleUp, faBell,
 faInfoCircle, faQuestionCircle, faTimesCircle, faAngleDown,
-faCogs, faSignature, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+faCogs, faSignature, faSignOutAlt, faSyncAlt} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars, faCaretLeft, faChartPie, faCoins, faNetworkWired,
   faPaperPlane, faHistory, faPlus, faExternalLinkAlt, faUser,
   faAngleDoubleUp, faBell, faInfoCircle, faQuestionCircle, faTimesCircle,
-  faAngleDown, faCogs, faSignature, faSignOutAlt)
+  faAngleDown, faCogs, faSignature, faSignOutAlt, faSyncAlt)
 
 Vue.component('awesome-icon', FontAwesomeIcon)

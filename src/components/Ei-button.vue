@@ -1,5 +1,5 @@
 <template>
-  <div class="ei-button" :class="[`ei-button-${type}`, `ei-button-${buttonType}`]">
+  <div class="ei-button" :class="[`ei-button-${type}`, `ei-button-${buttonType}`]" @click="$emit('click')">
     <span :class="[`ei-button-icon-size-${size}`]" v-if="type == 'icon' || type == 'with-icon'">
       <awesome-icon :icon="icon"></awesome-icon>
     </span>

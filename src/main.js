@@ -6,6 +6,9 @@ import "./assets/scss/application.scss"
 import "./config/_icons.js"
 import "./config/_globalComponents.js"
 
+import lineClamp from 'vue-line-clamp'
+Vue.use(lineClamp)
+
 Vue.config.productionTip = false;
 
 new Vue({
