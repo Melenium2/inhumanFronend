@@ -1,6 +1,6 @@
 <template>
-  <div class="support">
-    <div class="support-header">
+  <div class="support main-container-page">
+    <div class="support-header main-container-page-header">
       <span class="main-container-subtitle">User support</span>
       <h2 class="main-container-title">Support</h2>
       <span class="main-container-page-description">You can ask your questions here</span>
@@ -37,12 +37,14 @@ export default {
     activeItem: 0,
     uncompletedTickets: [
       {
+        id: 1,
         subject: 'Y menya problemi',
         section: 'Technical question',
         date: '1232131232131231',
         status: 'Processing'
       },
       {
+        id: 2,
         subject: 'Y menya problemi',
         section: 'Technical question',
         date: '1232131232131231',
@@ -51,18 +53,21 @@ export default {
     ],
     completedTickets: [
       {
+        id: 3,
         subject: 'Y menya problemi',
         section: 'Technical question',
         date: '1232131232131231',
         status: 'Done'
       },
       {
+        id: 4,
         subject: 'Y menya problemi',
         section: 'Technical question',
         date: '1232131232131231',
         status: 'Done'
       },
       {
+        id: 5,
         subject: 'Y menya problemi',
         section: 'Technical question',
         date: '1232131232131231',

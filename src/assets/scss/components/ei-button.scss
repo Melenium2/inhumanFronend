@@ -36,40 +36,39 @@
 }
 
 .ei-button-flat {
-  background-color: rgba($font-color-purple, 0);
-  border: 1px solid rgba($font-color-purple, 0.4);
+  background-color: rgba($font-color-purple, 0) !important;
+  border: 1px solid rgba($font-color-purple, 0.4) !important;
   border-radius: 7px;
-  color: $font-color-purple;
-  transition: background-color .3s, color .3s;
+  color: $font-color-purple !important;
+  transition: background-color .3s, color .3s !important;
   font-weight: 700;
   letter-spacing: 0.06rem;
 
   & > .ei-button-content {
-    font-size: 12px;
+    font-size: inherit;
   }
 
   &:hover {
-    color: $dark-white;
-    background-color: rgba($font-color-purple, 1);
+    color: $dark-white !important;
+    background-color: rgba($font-color-purple, 1) !important;
   }
 }
 
 .ei-button-standart {
-  background-color: $font-color-purple;
+  background-color: $font-color-purple !important;
   border: 1px solid rgba($font-color-purple, 0.4);
   border-radius: 7px;
-  color: $dark-white;
-  padding-right: 9px;
+  color: $dark-white !important;
   font-weight: 700;
   letter-spacing: 0.06rem;
-  transition: background-color .3s;
+  transition: background-color .3s !important;
 
   & > .ei-button-content {
-    font-size: 12px;
+    font-size: inherit;
   }
 
   &:hover {
-    background-color: rgba($font-color-purple, 0.8);
+    background-color: rgba($font-color-purple, 0.8) !important;
   }
 }
 

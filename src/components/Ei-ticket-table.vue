@@ -11,7 +11,7 @@
 		</thead>
 		<tbody v-if="rows.length > 0" ref="table-body">
 			<tr v-for="(row, index) in rows" :key="index">
-				<td v-for="(column, index) in headers" :key="index" @click="() => $router.push({path: `/support/view`, query: { id: row.id }})">
+				<td v-for="(column, index) in headers" :key="index" @click="() => $router.push({path: `/support/ticket`, query: { id: row.id }})">
 					<span v-line-clamp:20="2" :style="getStyle(column.meta, row[column.field])">{{ row[column.field] }}</span>
 				</td>
 			</tr>
@@ -61,7 +61,6 @@ export default {
 	}),
 	watch: {
 		rows() {
-      console.log(this.isUploading)
 			this.isUploading = false
 		}
 	},

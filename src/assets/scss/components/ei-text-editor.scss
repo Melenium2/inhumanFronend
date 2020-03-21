@@ -1,0 +1,47 @@
+@import '../const';
+
+.ei-text-editor {
+  
+  .menubar {
+    padding: 7px;
+
+    &-button {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 15px;
+      color: $font-color-default;
+      transition: color .3s, background .3s;
+      width: 30px;
+      height: 30px;
+      padding: 3px;
+      border-radius: 10px;
+
+      &:hover {
+        background: rgba($font-color-grey, 0.2);
+      }
+    }
+
+    .is-active {
+      background: rgba($font-color-grey, 0.2);
+      color: $font-color-purple;
+    }
+  }
+  
+  .content {
+    border-radius: 7px;
+    border: 1px solid $font-color-default;
+    padding: 7px;
+    color: $font-color-grey;
+    cursor: text;
+    overflow: auto;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .content-focused {
+    border: 1px solid $font-color-purple;
+  }
+}

@@ -151,6 +151,7 @@
       .links {
         display: flex;
         justify-content: space-between;
+        font-size: 12px;
         .buy-more, .profile {
           padding: .5rem 0;
         }
@@ -190,7 +191,7 @@
           color: $font-color-d-grey;
           font-weight: $font-weight-xl;
           font-family: $font-nunito;
-          letter-spacing: 0.1rem;
+          letter-spacing: 0.06rem;
           text-transform: none;
           line-height: 1.25rem;
 

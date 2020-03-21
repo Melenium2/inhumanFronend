@@ -22,6 +22,12 @@ const routes = [
         name: 'Support',
         component: () => import('../pages/Support.vue')
       },
+      {
+        path: '/support/ticket',
+        name: 'Ticket',
+        component: () => import('../pages/Ticket.vue'),
+        props: true
+      }
     ]
   }
 ];

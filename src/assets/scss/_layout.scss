@@ -29,6 +29,15 @@
       position: relative;
       padding: 24px;
 
+      &-page {
+        display: flex;
+        flex-direction: column;
+        padding: 0 14px;
+        &-header {
+          margin-bottom: 1.8rem;
+        }
+      }
+
       &-subtitle {
         font-size: $font-size-normal;
         line-height: 1.5rem;
