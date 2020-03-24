@@ -89,7 +89,15 @@ export default {
   },
   data: () => ({
     focused: false,
-    editor: new Editor({
+    editor: null
+  }),
+  methods: {
+    update(obj) {
+      this.$emit('input', obj.getHTML())
+    }
+  },
+  mounted() {
+    this.editor = new Editor({
       extensions: [
         new History(),
         new HorizontalRule(),
@@ -101,9 +109,10 @@ export default {
         new Heading({ levels: [2] }),
       ],
       onFocus: object => object.view.dom.parentNode.classList.add('content-focused'),
-      onBlur: object => object.view.dom.parentNode.classList.remove('content-focused')
+      onBlur: object => object.view.dom.parentNode.classList.remove('content-focused'),
+      onUpdate: this.update
     })
-  }),
+  },
   beforeDestroy() {
     this.editor.destroy()
   }

@@ -31,11 +31,11 @@
 							<span>{{ message.message }}</span>
 						</div>
 					</div>
-					<ei-text-editor></ei-text-editor>
+					<ei-text-editor v-model="editorText"></ei-text-editor>
 				</div>
         <div class="chat-footer">
           <ei-button class="reply-btn" standart>Reply</ei-button>
-          <ei-button class="close-btn" flat>Close question</ei-button>
+          <ei-button class="close-btn" flat with-confirm>Close question</ei-button>
         </div>
 			</div>
 			<div class="ticket-body-info">
@@ -108,6 +108,7 @@ export default {
 		EiTextEditor
 	},
 	data: () => ({
+    editorText: '',
 		messages: [
 			{
 				picture: '@/assets/images/user-avatar.png',
@@ -128,7 +129,10 @@ export default {
 				message: 'help me or i will k... oups sorry'
 			}
 		]
-	}),
+  }),
+  methods: {
+    
+  },
 	created() {
 		// let ticketId = this.$route.query.id
 	}

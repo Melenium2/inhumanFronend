@@ -28,6 +28,7 @@
       margin-top: 63px;
       position: relative;
       padding: 24px;
+      height: calc(100vh - 63px);
 
       &-page {
         display: flex;

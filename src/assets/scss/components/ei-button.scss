@@ -3,7 +3,7 @@
 .ei-button {
   cursor: pointer;
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -81,6 +81,13 @@
   }
 }
 
+.disable-hover {
+  transition: background-color 0s !important;
+  &:hover {
+    background: transparent !important;
+  }
+}
+
 .ei-button-icon-size-st {
   font-size: 22px;
   width: 40px;
@@ -88,4 +95,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ei-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.confirm-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF2CD;
+  color: #856404;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  transition: background-color .3s, color .3s;
+
+  .icon {
+    margin-right: .5rem;
+  }
+
+  &:hover {
+    background-color: rgb(255, 230, 161) !important;
+    color: $font-color-purple;
+  }
 }

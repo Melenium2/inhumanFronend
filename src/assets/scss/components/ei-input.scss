@@ -1,0 +1,37 @@
+@import '../const';
+
+.ei-input {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  &-field {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding: 0.3rem;
+    border-top-left-radius: 0.3125rem;
+    border-top-right-radius: 0.3125rem;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    outline: none;
+    font-family: $font-nunito;
+    font-weight: 400;
+    color: $font-color-black;
+    font-size: 0.9rem;
+
+    &:focus {
+        border-color: $font-color-purple;
+        background: inherit;
+    }
+
+    &-error {
+        background: $danger
+    }
+
+    &::placeholder {
+      color: $font-color-black;
+    }
+  }
+}

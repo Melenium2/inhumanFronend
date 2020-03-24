@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<Sidebar :triggered="isTriggered" @trigger="trigger" />
-		<div class="main-overlay" :class="{'main-overlay-active': isTriggered}"></div>
+		<div class="main-overlay" :class="{'main-overlay-active': overlayActive}"></div>
 		<div class="main-wrap">
 			<Navbar @trigger="trigger" />
 			<div class="main-container">
@@ -22,12 +22,18 @@ export default {
 		Sidebar,
 		Navbar
 	},
+	computed: {
+		overlayActive() {
+			return this.$store.getters['GET_GLOBAL_OVERLAY_STATUS']
+		}
+	},
 	data: () => ({
 		isTriggered: false
 	}),
 	methods: {
 		trigger() {
 			this.isTriggered = !this.isTriggered
+			this.$store.commit('SET_GLOBAL_OVERLAY_STATUS', this.isTriggered)
 		}
 	}
 }

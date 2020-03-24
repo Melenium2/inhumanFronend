@@ -1,0 +1,76 @@
+@import '../_const.scss';
+
+.ei-checkbox {
+	display: flex;
+	position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+		display: none;
+	}
+	
+	label {
+		cursor: pointer;
+    }
+
+    &:hover input ~ .ei-checkbox-checkmark {
+        background-color: rgba(#ccc, 0.5);
+    }
+}
+
+.ei-checkbox .ei-checkbox-checkmark {
+	display: inline-block;
+	flex-shrink: 0;
+    order: -1;
+    margin-right: 0.3rem;
+    border-radius: 5px;
+    width: 21px;
+    height: 21px;
+    background: #eeeeee;
+    transition: .1s background-color ease-in;
+	
+	&:after {
+		content: "";
+		position: absolute;
+		width: 0px;
+		height: 3px;
+		background: $font-color-purple;
+			
+		transform: translate(7px, 16px) rotate(-45deg);
+		transform-origin: left;
+		transition: all 150ms;
+		transition-delay: 0ms;
+	}
+	
+	&:before {
+		content: "";
+		position: absolute;
+		width: 0px;
+		height: 3px;
+		background: $font-color-purple;
+			
+		transform: translate(1px, 6px) rotate(50deg);
+		transform-origin: left;
+		transition: all 150ms;
+		transition-delay: 150ms;
+	}
+}
+
+.ei-checkbox input:checked {
+	& ~ .ei-checkbox-checkmark {
+		background-color: rgba(#ccc, 0.5);
+		&:before {
+			width: 12px;
+			transition-delay: 0ms;
+		}
+		
+		&:after {
+			width: 18px;
+			transition-delay: 150ms;
+		}
+	}
+}

@@ -116,6 +116,10 @@
         .item {
           justify-content: start;
           padding: .5rem 1rem .5rem 2.5rem;
+          
+          .ei-button-wrapper {
+            padding: 0;
+          }
 
           .ei-button-content {
             font-size: $font-size-standart;

@@ -1,12 +1,69 @@
+@import '../const';
+
 .support {
 
-  &-header {
-    
+  .ticket-modal {
+    width: 500px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      color: $font-color-grey;
+      letter-spacing: 0.07rem;
+
+      .close-icon {
+        font-size: 1rem;
+        cursor: pointer;
+        transition: color .3s;
+
+        &:hover {
+          color: $font-color-purple;
+        }
+      }
+    }
+
+    &-body {
+      .modal-body-block {
+        padding: 0.3rem 0;
+        display: flex;
+        flex-direction: column;
+
+        & > span {
+          color: $font-color-grey;
+          letter-spacing: 0.05rem;
+        }
+
+        .description-block > .content {
+          max-height: 200px;
+        }
+      }
+    }
+
+    &-footer {
+      display: flex;
+
+      .close, .send {
+        padding: 5px 10px;
+      }
+
+      .close {
+        margin-right: .5rem;
+      }
+    }
   }
 
   &-body {
     .controll-panel {
+      display: flex;
       margin-bottom: 1rem;
+
+      .create-btn {
+        margin-left: 2rem;
+        padding: 5px 10px;
+        font-size: $font-size-standart;
+      }
     }
   }
 }
