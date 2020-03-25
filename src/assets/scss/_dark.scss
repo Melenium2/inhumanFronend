@@ -1,0 +1,378 @@
+@import './const';
+
+.dark-theme {
+  $background-color: #363b4e;
+  $light-background-color: #484d61;
+  $dark-background-color: #313546;
+  $dark-purple-color: #4f3b78;
+  $semi-purple-color: #927fbf;
+  $light-purple-color: #c4bbf0;
+  $purple: $font-color-purple;
+  $grey: $font-color-default;
+
+  &,
+  body {
+    background-color: $light-background-color;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $dark-background-color;
+    margin: 0;
+  }
+
+  //Main container
+  .main {
+    &-wrap {
+      .main-container {
+        &-subtitle {
+          color: $grey;
+        }
+
+        &-title {
+          color: $light-purple-color;
+        }
+
+        &-page-description {
+          color: $grey !important;
+        }
+      }
+    }
+  }
+
+  //Sidebar
+  .ei-sidebar {
+    background: $background-color;
+    border-right: 1px solid $dark-background-color;
+
+    .ei-menu-text {
+      color: $light-purple-color !important;
+    }
+
+    &-header {
+
+      .trigger {
+        color: $grey !important;
+
+        &:hover {
+          color: $font-color-purple !important;
+        }
+
+        &:before {
+          background-color: $dark-background-color !important;
+        }
+      }
+    }
+
+    &-user {
+      &-content {
+        .plan>.plan-name {
+          color: $purple;
+        }
+      }
+    }
+
+    &-content {
+      .menu {
+        &-item {
+          &>a {
+            color: $grey;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05) !important;
+            }
+          }
+
+          &>.item-active {
+            color: $purple;
+            background-color: rgba(0, 0, 0, 0.05) !important;
+          }
+        }
+      }
+    }
+  }
+
+  //Buttons
+  .ei-button-icon {
+    color: $grey;
+    background-color: $background-color;
+
+    &:hover {
+      background-color: $dark-background-color;
+    }
+  }
+
+  .ei-button-flat {
+    color: $purple;
+
+    &:hover {
+      color: $background-color !important;
+    }
+  }
+
+  .ei-button-standart {
+    color: $background-color !important;
+  }
+
+  .ei-button-default {
+    color: $grey;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  //Navbar
+  .ei-navbar {
+    border-bottom: 1px solid $dark-background-color;
+    background-color: $background-color;
+
+    &-wrap {
+      .trigger {
+        color: $grey;
+
+        &:hover {
+          color: $purple;
+        }
+
+        &::before {
+          background-color: $dark-background-color;
+        }
+      }
+
+      .user-menu {
+        &-trigger {
+          .menu {
+            .username {
+              color: $light-purple-color;
+            }
+          }
+        }
+
+        &-header {
+          background-color: $dark-background-color;
+        }
+
+        &-content {
+          background-color: $background-color;
+        }
+      }
+    }
+  }
+
+  //Dropdown 
+  .ei-dropdown {
+    &-body {
+      &-header {
+        border-bottom: 1px solid $dark-background-color;
+      }
+
+      &-footer {
+        background-color: $background-color;
+        border-top: 1px solid $dark-background-color;
+      }
+    }
+  }
+
+  //Notificatins
+  .ei-notification {
+    &-body {
+      .ei-dropdown-body {
+        color: $grey;
+      }
+    }
+
+    &-header {
+      background-color: $dark-background-color;
+    }
+
+    &-item-container {
+      background-color: $background-color;
+    }
+
+    &-empty {
+      h4 {
+        color: $grey !important;
+      }
+    }
+  }
+
+  //Group buttons
+  .ei-group-item {
+    color: $grey !important;
+
+    &-active {
+      color: $purple !important;
+    }
+  }
+
+  //Ticket table
+  .ei-ticket-table {
+    color: $grey;
+
+    thead {
+      background-color: $dark-background-color;
+
+      tr {
+        border-bottom: 2px solid $dark-background-color;
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: $background-color;
+      }
+    }
+
+    &-upload {
+      &:hover {
+        background: $background-color !important;
+      }
+    }
+
+    &-no-data {
+      background-color: $background-color;
+    }
+  }
+
+  //Modal
+  .ei-modal {
+    color: $grey !important;
+    background-color: $background-color;
+
+    &-header {
+      border-bottom: 1px solid $dark-background-color;
+    }
+
+    &-footer {
+      border-top: 1px solid $dark-background-color;
+    }
+  }
+
+  //Input
+  .ei-input {
+    &-field {
+      color: $grey;
+      background: transparent;
+
+      &-error {
+        background: $danger
+      }
+
+      &::placeholder {
+        color: $grey;
+      }
+    }
+  }
+
+  //Select
+  .ei-select {
+    background-color: $background-color !important;
+
+    &-header-button {
+      .placeholder {
+        color: $grey !important;
+      }
+    }
+
+    &-content {
+      background-color: $background-color !important;
+
+      &-item {
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05) !important;
+        }
+      }
+    }
+  }
+
+  //Text editor
+  .ei-text-editor {
+    .content {
+      border: 1px solid $grey !important;
+      color: $grey;
+    }
+
+    .content-focused {
+      border: 1px solid $purple !important;
+    }
+  }
+
+  //Support -> ticket modal 
+  .support {
+    .ticket-modal {
+      &-header {
+        color: $light-purple-color;
+      }
+
+      &-body {
+        .modal-body-block {
+          &>span {
+            color: $light-purple-color;
+          }
+        }
+      }
+    }
+  }
+
+  //Ticket 
+  .ticket {
+    .time-text {
+      color: $grey !important;
+    }
+
+    .chat-user {
+      .email {
+        color: $grey !important;
+      }
+    }
+
+    &-body {
+      color: $light-purple-color;
+
+      &-chat {
+        background: $background-color;
+
+        .chat-header {
+          border-bottom: 1px solid $dark-background-color;
+        }
+
+        .chat-body {
+          &-message {
+            .message {
+              color: $grey;
+            }
+          }
+        }
+      }
+
+      &-info {
+        .information,
+        .additional {
+          background-color: $background-color;
+        }
+
+        .information > .information-title, .additional > .additional-header {
+          border-bottom: 1px solid $dark-background-color;
+        }
+
+        .information > .information-footer {
+          border-top: 1px solid $dark-background-color;
+        }
+      }
+    }
+  }
+
+
+  //Media query
+  @media (max-width: 1200px) {
+    .ei-sidebar>.ei-sidebar-header {
+      border-bottom: 1px solid $dark-background-color;
+      background-color: $background-color;
+    }
+  }
+}

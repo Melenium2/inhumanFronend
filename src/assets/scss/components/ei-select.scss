@@ -42,7 +42,7 @@
 
   &-header-error {
     border-color: $danger;
-    background: rgba($danger, 0.1);
+    background: $danger;
   }
 
   .arrow {
@@ -71,7 +71,7 @@
     background: rgba($font-color-purple, 0.4) !important;
   }
 
-  .ei-select-content {
+  &-content {
     position: absolute;
     width: 100%;
     max-height: 0;

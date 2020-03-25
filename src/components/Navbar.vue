@@ -6,6 +6,7 @@
           <awesome-icon icon="bars" size="lg"></awesome-icon>
         </i>
         <div class="ei-navbar-wrap-end">
+          <ei-button :style="{'margin-right': '0.5rem', padding: '5px 10px'}" @click="$store.commit('SET_THEME', 'dark-theme')" flat>To dark theme</ei-button>
           <ei-notification></ei-notification>
           <ei-dropdown class="user-menu">
             <div slot="trigger" class="user-menu-trigger">

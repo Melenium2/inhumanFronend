@@ -28,6 +28,9 @@ export default {
   },
   mounted() {
     if (this.visible) this.$store.commit('SET_GLOBAL_OVERLAY_STATUS', true)
+  },
+  beforeDestroy() {
+    this.$store.commit('SET_GLOBAL_OVERLAY_STATUS', false)
   }
 }
 </script>
