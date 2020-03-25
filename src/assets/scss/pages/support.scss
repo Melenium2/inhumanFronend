@@ -1,7 +1,6 @@
 @import '../const';
 
 .support {
-
   .ticket-modal {
     width: 500px;
 
@@ -63,6 +62,34 @@
         margin-left: 2rem;
         padding: 5px 10px;
         font-size: $font-size-standart;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .support {
+    .ticket-modal {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .support {
+    .ticket-modal {
+      width: 250px;
+    }
+    &-body {
+      .controll-panel {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        .create-btn {
+          margin: 0;
+          margin-top: 0.5rem;
+        }
       }
     }
   }

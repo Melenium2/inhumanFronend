@@ -24,11 +24,11 @@
     }
 
     th:nth-child(1) {
-      width: 30%;
+      width: 25%;
     }
 
     th:nth-child(2) {
-      width: 30%;
+      width: 25%;
     }
 
     th:nth-child(3) {
@@ -51,10 +51,6 @@
 
       td {
         padding: 0 .7rem;
-
-        span {
-          text-transform: capitalize;
-        }
       }
 
       &:hover {
@@ -103,4 +99,21 @@
     }
   }
 
+}
+
+@media (max-width: 576px) {
+  .ei-ticket-table {
+    font-size: $font-size-small;
+
+    tbody {
+      tr {
+        height: 40px;
+      }
+    }
+
+    &-upload {
+      height: 28px !important;
+      font-size: $font-size-standart !important;
+    }
+  }
 }

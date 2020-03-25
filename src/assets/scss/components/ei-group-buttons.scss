@@ -24,4 +24,8 @@
     &:hover {
         border-bottom: 1.5px solid $font-color-purple;
     }
+
+    @media (max-width: 576px) {
+      font-size: $font-size-standart;
+    }
 }

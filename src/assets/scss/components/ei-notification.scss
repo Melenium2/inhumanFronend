@@ -66,4 +66,12 @@
     background-color: #f8d7da;
     color: #721c24;
   }
+
+  @media (max-width: 576px) {
+    &-body {
+      .ei-dropdown-body {
+        width: 270px;
+      }
+    }
+  }
 }

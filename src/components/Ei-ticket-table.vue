@@ -49,7 +49,7 @@ export default {
           field: 'section'
       },
       {
-          label: 'Date of creation',
+          label: 'Created',
           field: 'date'
       },
       {

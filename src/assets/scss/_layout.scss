@@ -2,7 +2,7 @@
   position: relative;
   
   &-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -20,6 +20,7 @@
   }
 
   &-wrap {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -63,6 +64,29 @@
   @media (min-width: 1200px) {
     &-wrap {
       padding-left: 340px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &-wrap {
+      .main-container {
+        padding: 12px;
+
+        &-subtitle {
+          font-size: $font-size-standart;
+          color: $font-color-default;
+          font-weight: $font-weight-standart;
+        }
+  
+        &-title {
+          font-size: ceil($font-size-standart * 2);
+          font-weight: $font-weight-standart;
+        }
+  
+        &-page-description {
+          font-size: 0.75rem
+        }
+      }
     }
   }
 }
