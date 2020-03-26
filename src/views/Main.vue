@@ -24,7 +24,15 @@ export default {
 	},
 	computed: {
 		overlayActive() {
-			return this.$store.getters['GET_GLOBAL_OVERLAY_STATUS']
+			let overlayStatus = this.$store.getters['GET_GLOBAL_OVERLAY_STATUS']
+			if (overlayStatus) {
+				document.documentElement.style.overflow = 'hidden'
+				document.body.scroll = "no"
+			} else {
+				document.documentElement.style.overflow = 'auto'
+				document.body.scroll = "yes"
+			}
+			return overlayStatus
 		}
 	},
 	data: () => ({

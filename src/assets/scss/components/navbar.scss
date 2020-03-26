@@ -153,7 +153,9 @@
   .trigger {
     visibility: visible !important;
   }
+}
 
+@media (max-width: 768px) {
   .user-menu {
     .menu {
       display: none !important;

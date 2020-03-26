@@ -5,7 +5,7 @@
 			@click="expand" 
 			:class="{ 'ei-select-header-active': isExpand , 'ei-select-header-error': isError}">
 			<span class="placeholder">{{ selectedItem.text == null ? placeholder : selectedItem.text }}</span>
-			<feather-icon icon="ArrowDownIcon" class="rc-select-dropdown-arrow arrow"  :class="{ 'arrow-rotate': isExpand }" />
+			<awesome-icon icon="angle-down" class="ei-select-dropdown-arrow arrow" :class="{ 'arrow-rotate': isExpand }"></awesome-icon>
 		</div>
 		<div v-else class="" @click="expand">
 			<input 
@@ -14,7 +14,7 @@
 				v-model="search" 
 				ref="header-input"
 				:class="{ 'ei-select-header-active': isExpand, 'ei-select-header-error': isError }" >
-			<feather-icon icon="ArrowDownIcon" class="rc-select-dropdown-arrow arrow"  :class="{ 'arrow-rotate': isExpand }" />
+			<awesome-icon icon="angle-down" class="ei-select-dropdown-arrow arrow" :class="{ 'arrow-rotate': isExpand }"></awesome-icon>
 		</div>
 		<div class="ei-select-content scroll" ref="content">
 			<div v-if="!checkbox">

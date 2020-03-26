@@ -15,7 +15,7 @@
             <div class="ei-sidebar-user-content">
               <div class="balance">
                 <h1>20313 p.</h1>
-                <ei-button type="icon" icon="history" size="st"></ei-button>
+                <ei-button type="icon" icon="history" size="lg"></ei-button>
               </div>
               <div class="plan">
                 <span>Plan:</span>
@@ -97,6 +97,7 @@ export default {
   }),
   watch: {
       '$route'() {
+          if (this.triggered) this.$emit('trigger')
           this.setActiveButton()
       }
   },
