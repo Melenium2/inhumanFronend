@@ -10,6 +10,8 @@ import "./config/_globalComponents.js"
 import lineClamp from 'vue-line-clamp'
 Vue.use(lineClamp)
 
+Vue.use(require('vue-moment'))
+
 Vue.config.productionTip = false;
 
 new Vue({

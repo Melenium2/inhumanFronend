@@ -1,0 +1,88 @@
+@import '../const';
+
+.ei-dashboard {
+
+  &-top {
+    display: flex;
+    justify-content: flex-start;
+
+    &-chart {
+      width: 60%;
+
+      .chart-container {
+        position: relative;
+      }
+    }
+
+    &-info {
+      margin-left: 2rem;
+      width: 40%;
+
+      .preview {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: $font-color-black;
+        
+        .icon {
+          font-size: $font-size-large;
+        }
+
+        .text {
+          font-size: $font-size-standart;
+        }
+      }
+
+      .api-info {
+        margin-bottom: 0.5rem;
+
+        &-container {
+          display: flex;
+
+          .credentials {
+            width: 70%;
+            .login, .password {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .login {
+              margin-bottom: .5rem;
+            }
+          }
+        }
+      }
+
+      .promo {
+
+        &-container {
+          display: flex;
+
+          .preivew {
+            width: 30%;
+          }
+
+          .info {
+            width: 70%;
+          }
+        }
+
+        &-footer {
+          display: flex;
+          justify-content: center;
+          font-size: 12px;
+
+          .ei-button {
+            width: 120px
+          }
+
+          .margin {
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
