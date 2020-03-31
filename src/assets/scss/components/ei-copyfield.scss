@@ -18,13 +18,14 @@
     color: $font-color-black;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: color .3s;
+    transition: color .3s, border .3s;
 
     &:hover {
       color: $font-color-purple;
+      border-bottom: 1px solid $font-color-purple;
     }
 
-    &:disabled {
+    &:read-only {
       background-color: transparent;
     }
   }

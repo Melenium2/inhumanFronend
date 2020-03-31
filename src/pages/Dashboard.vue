@@ -1,12 +1,12 @@
 <template>
-	<div class="ei-dashboard">
-		<div class="ei-dashboard-header main-container-page-header">
+	<div class="dashboard">
+		<div class="dashboard-header main-container-page-header">
 			<span class="main-container-subtitle">Hello, Nikola Tesla</span>
 			<h2 class="main-container-title">Dashboard</h2>
 			<span class="main-container-page-description">Short information about you</span>
 		</div>
-		<div class="ei-dashboard-top">
-			<ei-form class="ei-dashboard-top-chart">
+		<div class="dashboard-top">
+			<ei-form class="dashboard-top-chart">
 				<div slot="header">
 					Spent money
 				</div>
@@ -14,7 +14,7 @@
 					<line-chart ref="chart" :chartData="chartData" :options="chartConfig.options" :style="{ height: `${chartHeight}px` }"></line-chart>
 				</div>
 			</ei-form>
-			<div class="ei-dashboard-top-info">
+			<div class="dashboard-top-info">
 				<ei-form class="api-info" ref="api-info">
 					<div slot="header">Api information</div>
 					<div slot="body" class="api-info-container">
@@ -56,7 +56,7 @@
 				</ei-form>
 			</div>
 		</div>
-		<div class="ei-dashboard-bottom">
+		<div class="dashboard-bottom">
 			<ei-form>
 				<div slot="body">
 					<ei-table
@@ -83,7 +83,7 @@
 							}
 						]"
 						:rows="test_tableRows"
-					 />
+					/>
 				</div>
 			</ei-form>
 		</div>

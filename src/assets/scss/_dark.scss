@@ -371,6 +371,79 @@
     }
   }
 
+  // Form
+  .ei-form {
+    background: $background-color;
+    color: $grey;
+
+    &-header {
+      border-bottom: 1px solid $dark-background-color; 
+    }
+
+    &-footer {
+      border-top: 1px solid $dark-background-color;
+    }
+  }
+
+  // Copy field
+  .ei-copy-field {
+    .field {
+      color: $light-purple-color;
+
+      &:hover {
+        color: $light-purple-color;
+      }
+    }
+
+    .protector {
+      color: transparent;
+      text-shadow: 0 0 5px rgba($light-purple-color, 0.5);
+  
+  
+      &:hover {
+        text-shadow: none;
+      }
+    }
+  }
+
+  // Dashboard
+  .dashboard {
+    &-top {
+      &-info {
+        .preview {
+          color: $light-purple-color;
+        }
+      }
+
+      .promo-container {
+        .info {
+          color: $light-purple-color;
+        }
+      }
+    }
+  }
+
+  // Table
+  .ei-table {
+    color: $grey;
+
+    .table > .table-content {
+      thead {
+        background-color: $dark-background-color;
+  
+        tr {
+          border-bottom: 2px solid $dark-background-color;
+        }
+      }
+  
+      tbody {
+        tr {
+          background-color: $background-color;
+        }
+      }
+    }
+  }
+
 
   //Media query
   @media (max-width: 1200px) {

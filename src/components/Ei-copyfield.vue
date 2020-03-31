@@ -1,6 +1,6 @@
 <template>
   <div class="ei-copy-field" @click="copy">
-    <input class="field" type="text" disabled :value="text" :class="{ 'protector': isProtectionActive }">
+    <input class="field" type="text" readonly :value="text" :class="{ 'protector': isProtectionActive }">
     <div class="message-box" :class="{'message-box-active': isActive}">
       <span>Copied!</span>
     </div>
@@ -39,7 +39,7 @@ export default {
       setTimeout(() => {
         this.isActive = false
       }, 1500)
-    }
+    },
   },
   mounted() {
     this.isProtectionActive = this.protected
