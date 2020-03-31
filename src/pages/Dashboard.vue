@@ -31,7 +31,7 @@
 							</div>
 							<div class="password">
 								<span>Password:</span>
-								<ei-copyfield text="2f766bb7f2dc84487e119"></ei-copyfield>
+								<ei-copyfield text="2f766bb7f2dc84487e119" protected></ei-copyfield>
 							</div>
 						</div>
 					</div>
@@ -57,17 +57,35 @@
 			</div>
 		</div>
 		<div class="ei-dashboard-bottom">
-			<div class="ei-dashboard-bottom-table">
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-				<h1>adsad</h1>
-			</div>
+			<ei-form>
+				<div slot="body">
+					<ei-table
+						:headers="[
+							{
+								label: 'Id',
+								field: 'id'
+							},
+							{
+								label: 'Operation',
+								field: 'operation',
+							},
+							{
+								label: 'Cost',
+								field: 'cost',
+							},
+							{
+								label: 'Date',
+								field: 'date',
+							},
+							{
+								label: 'Task result',
+								field: 'taskResult',
+							}
+						]"
+						:rows="test_tableRows"
+					 />
+				</div>
+			</ei-form>
 		</div>
 	</div>
 </template>
@@ -76,15 +94,18 @@
 import LineChart from '../components/LineChart'
 import EiCopyfield from '../components/Ei-copyfield'
 import chartConfig from '../config/chartConfigs/_dashboardCharts'
+import EiTable from '../components/Ei-table'
 
 export default {
 	components: {
 		LineChart,
-		EiCopyfield
+		EiCopyfield,
+		EiTable
 	},
 	data: () => ({
 		chartConfig: chartConfig,
-		chartHeight: 0
+		chartHeight: 0,
+		test_tableRows: []
 	}),
 	computed: {
 		chartData() {
@@ -122,8 +143,17 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this.$refs.chart)
-		console.log(this.getDatesRange("MMM, D"))
+		let array = []
+		for (let i = 0; i < 100; i++) {
+			array.push({
+				id: 1,
+				operation: 'operation',
+				cost: 250,
+				date: '2020-03-30',
+				taskResult: 'complete'
+			})
+		}
+		this.test_tableRows = Array.from(array)
 	},
 	created() {
 		window.addEventListener('resize', this.resizeWindow)

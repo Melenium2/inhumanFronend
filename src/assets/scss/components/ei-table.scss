@@ -1,0 +1,122 @@
+@import '../const';
+
+.ei-table {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .table {
+        overflow: hidden;
+        height: inherit;
+        width: inherit;
+
+        &-content {
+            height: 87%;
+            // overflow: auto;
+
+            table {
+                white-space: normal;
+                width: 100%;
+
+                thead {
+                    height: 30px;
+                    background-color: #ffffff;
+                    user-select: none;
+    
+                    th {
+                        padding: 0 0.5rem;
+                        height: 30px;
+    
+                        .header-ceil {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+    
+                        .sort-icon {
+                            font-size: 14px;
+                        }
+    
+                        .sort-mode {
+                            display: inline;
+                            color: rgba($font-color-purple, 0.8);
+                            .sort-icon {
+                                color: rgba($font-color-purple, 1);
+                            }
+                        }
+                    }
+                }
+    
+                tbody {
+                    font-size: $font-size-standart;
+                    
+                    .table-row {
+                        cursor: default;
+                        box-shadow: 1px -1px 15px 0px rgba(#000000, 0);
+                        transition: 0.15s box-shadow ease-in;
+                        
+                        &:nth-child(2n) {
+                            background: rgba(0, 0, 0, 0.03);
+                        }
+    
+                        &:hover {
+                            box-shadow: 1px -1px 15px 0px rgba(#616161, .2);
+                        }
+    
+                        td {
+                            text-align: center;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            text-shadow: 0px 0px 5px #fff;
+                            padding: 0.5rem;
+                        }
+                    }
+    
+                }
+            }
+        }
+
+        .pagination {
+            height: 13%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            user-select: none;
+
+            &-list {
+                display: flex;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                border: 1px solid rgba($font-color-purple, 0.5);
+                border-radius: 3px;
+                padding: 0.1rem;
+
+                &-item {
+                    padding: 0 .63rem;
+                    transition: background-color .3s, color .3s;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background-color: $font-color-purple;
+                        color: $white;
+                    }
+                }
+
+                .active-item {
+                    background-color: $font-color-purple;
+                    color: $white;
+                }
+            }
+
+            .ei-button {
+                margin: 0 0.5rem;
+                width: 30px;
+                height: 30px;
+                background: transparent;
+            }
+        }
+    }
+}

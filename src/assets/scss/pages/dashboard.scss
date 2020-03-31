@@ -5,6 +5,7 @@
   &-top {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 2rem;
 
     &-chart {
       width: 60%;
@@ -84,5 +85,11 @@
         }
       }
     }
+  }
+
+  &-bottom {
+    .ei-table {
+      height: 45vh;
+    } 
   }
 }
