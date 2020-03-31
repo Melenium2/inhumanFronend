@@ -37,7 +37,7 @@
 					</li>
 				</ul>
 				<ei-button icon="chevron-right" :disabled="(page * itemsPerPage) > rows.length" type="icon" @click="nextPage" />
-				<span class="pl-2 pr-2">Items: {{ rows.length }}</span>
+				<span class="count">Items: {{ rows.length }}</span>
 			</div>
 		</div>
 	</div>

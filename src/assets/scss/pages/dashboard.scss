@@ -94,4 +94,35 @@
       height: 45vh;
     }
   }
+
+  @media (max-width: 922px) {
+    &-top {
+      display: block;
+      margin-bottom: 1rem;
+
+      &-chart {
+        width: 100%;
+      }
+
+      &-info {
+        width: 100%;
+        margin: 0;
+        margin-top: 1rem;
+
+        .api-info {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    &-top {
+      &-info {
+        .preview > .text {
+          display: none;
+        }
+      }
+    }
+  }
 }

@@ -21,4 +21,8 @@
     border-top: 1px solid $dark-white;
     padding: 5px 14px 10px 14px;
   }
+
+  @media (max-width: 576px) {
+    font-size: $font-size-standart;
+  }
 }
