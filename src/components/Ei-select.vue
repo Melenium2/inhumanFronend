@@ -95,7 +95,6 @@ export default {
 			selectedItem: {},
 			search: '',
 			currentItem: 1,
-			filtredListLenght: 0,
 			itemHeight: 0,
 			pushedItems: [],
 			isError: false
@@ -151,11 +150,11 @@ export default {
 				this.selectEvent(event)
 				let items = Array.from(this.$el.getElementsByClassName('rc-select-item'))
 				let index = items.indexOf(this.$el.getElementsByClassName('selected-by-keys')[0])
-				if (event.keyCode == 40  && this.currentItem < this.filtredListLenght) {
+				if (event.keyCode == 40  && this.currentItem < this.filtredItemsList.length) {
 					this.currentItem += 1
 					items[index + 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
 					event.preventDefault()
-				} else if (event.keyCode == 38 && this.currentItem <= this.filtredListLenght) {
+				} else if (event.keyCode == 38 && this.currentItem <= this.filtredItemsList.length) {
 					this.currentItem -= 1
 					if (this.currentItem == 0) {
 						this.currentItem = this.filtredItemsList.length
@@ -164,7 +163,7 @@ export default {
 						items[index - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
 
 						event.preventDefault()
-				} else if (event.keyCode == 40 || event.keyCode == 38 && this.currentItem >= this.filtredListLenght) {
+				} else if (event.keyCode == 40 || event.keyCode == 38 && this.currentItem >= this.filtredItemsList.length) {
 					this.currentItem = 1
 					items[0].scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' })
 					event.preventDefault()
@@ -179,17 +178,14 @@ export default {
 		}
 	},
 	computed: {
-		 /* eslint-disable */
 		filtredItemsList() {
 			if (this.filter) {
-				let list = this.menuItems.filter(item => item.text.toLowerCase().includes(this.search.toLowerCase()))
-				this.filtredListLenght = list.length;
-				return list;
-			} else {
-				return this.menuItems
+				// let list = this.menuItems.filter(item => item.text.toLowerCase().includes(this.search.toLowerCase()))
+				// this.filtredListLenght = list.length;
+				return this.menuItems.filter(item => item.text.toLowerCase().includes(this.search.toLowerCase()))
 			}
+			return this.menuItems
 		}
-		 /* eslint-enable */
 	},
 	created() {
 		document.addEventListener('keydown', this.movingEvent)

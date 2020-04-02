@@ -27,6 +27,11 @@ const routes = [
         name: 'Ticket',
         component: () => import('../pages/Ticket.vue'),
         props: true
+      },
+      {
+        path: '/usage',
+        name: 'ApiUsage',
+        component: () => import('../pages/ApiUsage.vue')
       }
     ]
   }

@@ -15,6 +15,7 @@
     color: $font-color-grey;
     cursor: pointer;
     transition: .2s color ease-out;
+    border-bottom: 1.5px solid transparent;
 
     &-active {
         color: $font-color-purple;
