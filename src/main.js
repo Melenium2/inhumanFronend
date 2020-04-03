@@ -10,7 +10,8 @@ import "./config/_globalComponents.js"
 import lineClamp from 'vue-line-clamp'
 Vue.use(lineClamp)
 
-Vue.use(require('vue-moment'))
+import moment from 'moment'
+Vue.prototype.moment = moment
 
 Vue.config.productionTip = false;
 

@@ -46,18 +46,22 @@
 							{
 								label: 'Operation',
 								field: 'operation',
+                                sort: 'string'
 							},
 							{
 								label: 'Cost',
 								field: 'cost',
+                                sort: 'number'
 							},
 							{
 								label: 'Date',
 								field: 'date',
+                                sort: 'date'
 							},
 							{
 								label: 'Task result',
 								field: 'taskResult',
+                                sort: 'string'
 							}
 						]"
                         :rows="test_TableRows"
@@ -155,13 +159,13 @@ export default {
                     labels: this.monthRange(),
                     datasets: [
                         {
-                            data:  this.randomDataset(this.$moment().daysInMonth(), 10, 30),
+                            data:  this.randomDataset(this.moment().daysInMonth(), 10, 30),
                             borderColor: '#6576ff',
                             fill: false,
                             yAxisID: 'y',
                         },
                         {
-                            data: this.randomDataset(this.$moment().daysInMonth(), 0, 10),
+                            data: this.randomDataset(this.moment().daysInMonth(), 0, 10),
                             borderColor: '#8094ae',
                             fill: false,
                             yAxisID: 'y1'
@@ -171,7 +175,7 @@ export default {
         },
         dayHoursRange() {
             return Array.from({ length: 24 }, (x, i) =>
-				this.$moment()
+				this.moment()
                     .startOf('hour')
                     .hour(i)
                     .format('HH:mm')
@@ -179,15 +183,15 @@ export default {
         },
         weekRange() {
             return Array.from({ length: 7 }, (x, i) =>
-				this.$moment()
+				this.moment()
                     .startOf('week')
                     .isoWeekday(i + 1)
                     .format('ddd')
 			)
         },
         monthRange() {
-            return Array.from({ length: this.$moment().daysInMonth() }, (x, i) =>
-				this.$moment()
+            return Array.from({ length: this.moment().daysInMonth() }, (x, i) =>
+				this.moment()
 					.startOf('month')
                     .add(i, 'days')
                     .format('MMM, D')
@@ -216,11 +220,18 @@ export default {
                 array.push({
                     id: 1,
                     operation: 'operation',
-                    cost: 250,
+                    cost: Math.floor(Math.random() * (100 - 20)) + 100,
                     date: '2020-03-30',
                     taskResult: 'complete'
                 })
             }
+            array.push({
+                    id: 1,
+                    operation: 'Aperation',
+                    cost: Math.floor(Math.random() * (100 - 20)) + 100,
+                    date: '2021-03-30',
+                    taskResult: 'complete'
+                })
             return array
         }
     },

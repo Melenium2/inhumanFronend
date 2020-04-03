@@ -7,17 +7,18 @@
 						<th v-for="(column, index) in headerSlice" :key="index" :style="fixColumns.length > 0 ? { 'width': fixColumns[index] } : ''">
 							<div
 								class="header-ceil"
-								:class="{'sort-mode': column.sortStatus != 'none', 'cursor': column.sort != 'none' ? 'pointer' : 'default'}"
-								@click="headerSort(index, column.field)"
+								:class="{'sort-mode': column.sortStatus != 'none'}"
+								:style="{'cursor': column.sort != undefined && column.sort != 'none' ? 'pointer' : 'default'}"
+								@click="sort(index)"
 							>
 								<span>{{ column.label }}</span>
-								<awesome-icon v-if="column.sortStatus != 'none' && column.sortStatus === 'sortDec'" class="sort-icon ml-1" icon="angle-down" />
-								<awesome-icon v-else-if="column.sortStatus != 'none' && column.sortStatus === 'sortInc'" class="sort-icon ml-1" icon="angle-up" />
+								<awesome-icon v-if="column.sortStatus != 'none' && column.sortStatus === 'sortDec'" class="sort-icon" icon="angle-up" />
+								<awesome-icon v-else-if="column.sortStatus != 'none' && column.sortStatus === 'sortInc'" class="sort-icon" icon="angle-down" />
 							</div>
 						</th>
 					</thead>
 					<tbody ref="table-body">
-						<tr v-for="(row, index) in rowsSlice" :key="index" class="table-row" :style="{height: `${standartRowHeight}px`}">
+						<tr v-for="(row, index) in rowSlice" :key="index" class="table-row" :style="{height: `${standartRowHeight}px`}">
 							<td v-for="(column, index) in headerSlice" :key="index">
 								<span :title="row[column.field]">{{ row[column.field] }}</span>
 							</td>
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import sort from '../utils/_arraysUtils'
+
 export default {
     props: {
         headers: {
@@ -57,19 +60,33 @@ export default {
         fixColumns: {
             type: Array,
             default: () => []
-        }
+        },
+		filter: {
+			type: Boolean,
+			default: false
+		}
     },
 	data: () => ({
         itemsPerPage: 0,
 		page: 1,
 		standartRowHeight: 38,
 		exemplaryHeight: 0,
+		rowsx: [],
 		headerSlice: []
 	}),
+	watch: {
+		rows(newValue) {
+			this.rowsx = newValue
+		},
+		rowSlice: {
+			handler() {
+			},
+			deep: true
+		}
+	},
 	computed: {
-		rowsSlice() {
-			if (this.itemsPerPage == 0) return this.rows
-            else return this.rows.slice(this.itemsPerPage * this.page - this.itemsPerPage, this.itemsPerPage * this.page)
+		rowSlice() {
+			return this.rowsx.slice(this.itemsPerPage * this.page - this.itemsPerPage, this.itemsPerPage * this.page)
 		},
 		paginationSlice() {
 			let pagination = [1, 2, 3, 4, 5]
@@ -86,6 +103,33 @@ export default {
 		}
 	},
 	methods: {
+		sort(index) {
+			const header = this.headerSlice[index]
+			if (header.sort != undefined && header.sort != 'none') {
+				const sortField = header.field
+				if (header.sortStatus == 'none' || header.sortStatus == 'sortDec') {
+					this.changeSortStatus(index, 'sortInc')
+					if (header.sort == 'number') 
+						this.rowsx = sort.sortNumbers(this.rows, header.field, (a, b) => a[sortField] - b[sortField])
+					if (header.sort == 'string')
+						this.rowsx = sort.sortStrings(this.rowsx, header.field, { method: 'asc' })
+					if (header.sort == 'date')
+						this.rowsx = sort.sortDates(this.rowsx, header.field, { method: 'asc' })
+				} else {
+					this.changeSortStatus(index, 'sortDec')
+					if (header.sort == 'number') 
+						this.rowsx = sort.sortNumbers(this.rows, header.field, (a, b) => b[sortField] - a[sortField])
+					if (header.sort == 'string')
+						this.rowsx = sort.sortStrings(this.rowsx, header.field, { method: 'desc' })
+					if (header.sort == 'date')
+						this.rowsx = sort.sortDates(this.rowsx, header.field, { method: 'desc' })
+				}
+			}
+		},
+		changeSortStatus(elIndex, status) {
+			this.headerSlice.map(el => el.sortStatus = 'none')
+			this.headerSlice[elIndex].sortStatus = status
+		},
 		resizeTableEvent() {
 			this.$nextTick(() => {
 				const tableHeight = this.$refs['table-content'].clientHeight
@@ -120,6 +164,7 @@ export default {
 	},
 	mounted() {
 		this.defaultHeaders()
+		this.rowsx = this.rows
 	},
 	created() {
 		window.addEventListener('resize', this.resizeTableEvent)
