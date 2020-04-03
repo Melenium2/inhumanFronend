@@ -94,7 +94,7 @@
 import LineChart from '../components/LineChart'
 import EiCopyfield from '../components/Ei-copyfield'
 import chartConfig from '../config/chartConfigs/_dashboardCharts'
-import EiTable from '../components/Ei-table'
+import EiTable from '../components/EiTable/Ei-table'
 
 export default {
 	components: {
@@ -132,8 +132,8 @@ export default {
 			}
 		},
 		getDatesRange(format) {
-			let range = Array.from({ length: this.$moment().daysInMonth() }, (x, i) =>
-				this.$moment()
+			let range = Array.from({ length: this.moment().daysInMonth() }, (x, i) =>
+				this.moment()
 					.startOf('month')
 					.add(i, 'days')
 			)

@@ -8,7 +8,9 @@ faInfoCircle, faQuestionCircle, faTimesCircle, faAngleDown,
 faCogs, faSignature, faSignOutAlt, faSyncAlt, faQuoteRight,
 faBold, faItalic, faStrikethrough, faUnderline, faHeading,
 faListUl, faMinus, faUndoAlt, faRedoAlt, faTimes, faPen, 
-faKey, faInfo, faAngleUp, faChevronLeft, faChevronRight, faDirections} from '@fortawesome/free-solid-svg-icons'
+faKey, faInfo, faAngleUp, faChevronLeft, faChevronRight, faDirections,
+faChevronDown,
+faCalendarAlt} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars, faCaretLeft, faChartPie, faCoins, faNetworkWired,
   faPaperPlane, faHistory, faPlus, faExternalLinkAlt, faUser,
@@ -16,6 +18,6 @@ library.add(faBars, faCaretLeft, faChartPie, faCoins, faNetworkWired,
   faAngleDown, faCogs, faSignature, faSignOutAlt, faSyncAlt, faQuoteRight,
   faBold, faItalic, faStrikethrough, faUnderline, faHeading, faListUl,
   faMinus, faUndoAlt, faRedoAlt, faTimes, faPen, faKey, faInfo, faAngleUp,
-  faChevronLeft, faChevronRight, faDirections)
+  faChevronLeft, faChevronRight, faDirections, faChevronDown, faCalendarAlt)
 
 Vue.component('awesome-icon', FontAwesomeIcon)

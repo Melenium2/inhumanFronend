@@ -13,6 +13,11 @@ Vue.use(lineClamp)
 import moment from 'moment'
 Vue.prototype.moment = moment
 
+import VCalendar from 'v-calendar'
+Vue.use(VCalendar, {
+  componentPrefix: 'ei'
+})
+
 Vue.config.productionTip = false;
 
 new Vue({

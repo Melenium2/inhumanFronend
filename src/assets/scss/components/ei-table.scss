@@ -2,12 +2,11 @@
 
 .ei-table {
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex-direction: column;
 
     .table {
-        height: inherit;
-        width: inherit;
+        height: 100%;
+        width: 100%;
         
         &-content {
             overflow: hidden;
@@ -158,6 +157,97 @@
                 .count {
                     display: none;
                 }   
+            }
+        }
+    }
+
+    .ei-table-filter {
+        display: flex;
+        width: 100%;
+        padding: 1rem;
+        padding-top: 0;
+        flex-direction: column;
+        
+        .label {
+            font-size: 1.2rem;
+            color: $font-color-grey;
+            margin: 0 0.5rem;
+
+            &-icon {
+                color: $font-color-purple;
+            }
+        }
+
+        .templates {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .3s ease-in-out;
+
+            .filter {
+                display: flex;
+                align-items: center;
+
+                .date-picker {
+                    margin-left: 0.5rem;
+                    input {
+                        cursor: pointer;
+                    }
+                }
+
+                .default-btn {
+                    margin-left: 1rem;
+                    padding: 0.4rem;
+                    width: 100px;
+                }
+            }
+        }
+
+        .border {
+            position: relative;
+            width: 100%;
+            margin: 10px 0;
+            clear: both;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .left {
+                width: 100%;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .text {
+                background: transparent;
+                position: relative;
+                white-space: nowrap;
+                padding: 0 12px;
+                font-size: $font-size-standart;
+                cursor: pointer;
+                transition: color .3s;
+                font-weight: $font-weight-large;
+
+                .icon {
+                    margin-left: .5rem;
+                    transition: transform .3s;
+                }
+
+                &:hover {
+                    color: $font-color-purple;
+                }
+            }
+
+            .triggered {
+                color: $font-color-purple;
+                .icon {
+                   transform: rotateZ(180deg);
+                }
+            }
+
+            .right {
+                width: 100%;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
             }
         }
     }

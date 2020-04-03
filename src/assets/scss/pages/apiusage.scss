@@ -84,7 +84,9 @@
         }
         .ei-table {
             width: 100%;
-            height: 60vh;
+            .table {
+                height: 60vh;
+            }
         }
     }
 }

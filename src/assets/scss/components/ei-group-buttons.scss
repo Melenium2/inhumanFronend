@@ -9,6 +9,13 @@
   }
 }
 
+.inactive {
+  .ei-group-item-active {
+      color: $font-color-grey;;
+      border-bottom: none; 
+  }
+}
+
 .ei-group-item {
     padding: .5rem;
     font-weight: 500;

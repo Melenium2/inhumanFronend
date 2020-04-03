@@ -1,5 +1,5 @@
 <template>
-	<div class="ei-group-buttons">
+	<div class="ei-group-buttons" :class="{ 'inactive': isActive }" @click="isActive = false">
 		<slot />
 	</div>
 </template>
@@ -9,11 +9,16 @@ export default {
 	props: {
 		value: {
 			type: Number
+		},
+		inactive: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data: () => ({
 		children: null,
-		activeChildren: null
+		activeChildren: null,
+		isActive: false
 	}),
 	watch: {
 		activeChildren(newVal) {
@@ -37,6 +42,7 @@ export default {
 	},
 	mounted() {
 		this.activeByDefault()
+		this.isActive = this.inactive
 	},
 	created() {
 		this.children = this.$children

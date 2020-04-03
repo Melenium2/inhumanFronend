@@ -38,6 +38,7 @@
             <ei-form>
                 <div slot="body">
                     <ei-table
+                        filter
                         :headers="[
 							{
 								label: 'Id',
@@ -77,7 +78,7 @@ import LineChart from '../components/LineChart'
 import apiusageCharts from '../config/chartConfigs/_apiusageCharts'
 import EiGroupItem from '../components/EiGroupButtons/Ei-group-item'
 import EiGroupButtons from '../components/EiGroupButtons/Ei-group-buttons.vue'
-import EiTable from '../components/Ei-table'
+import EiTable from '../components/EiTable/Ei-table'
 
 export default {
     components: {
@@ -214,6 +215,9 @@ export default {
                 this.chartHeight = this.$refs['stat-body'].clientHeight - padding
 			})
         },
+        randomDate(start, end) {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        },
         test_FilTableRows() {
             let array = []
             for (let i = 0; i < 100; i++) {
@@ -221,7 +225,7 @@ export default {
                     id: 1,
                     operation: 'operation',
                     cost: Math.floor(Math.random() * (100 - 20)) + 100,
-                    date: '2020-03-30',
+                    date: this.moment(this.randomDate(new Date(2018, 0, 1), new Date())).format("YYYY-MM-DD"),
                     taskResult: 'complete'
                 })
             }

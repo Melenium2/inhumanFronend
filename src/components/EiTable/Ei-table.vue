@@ -1,5 +1,6 @@
 <template>
 	<div class="ei-table">
+		<ei-table-filter v-if="filter" @filter="filterEvent" :available-dates="availableDates"></ei-table-filter>
 		<div ref="table" class="table">
 			<div ref="table-content" class="table-content">
 				<table :style="fixColumns.length > 0  ? {'table-layout': 'fixed'}: ''">
@@ -45,9 +46,13 @@
 </template>
 
 <script>
-import sort from '../utils/_arraysUtils'
+import EiTableFilter from './Ei-table-filter'
+import sort from '../../utils/_arraysUtils'
 
 export default {
+	components: {
+		EiTableFilter
+	},
     props: {
         headers: {
             type: Array,
@@ -72,7 +77,7 @@ export default {
 		standartRowHeight: 38,
 		exemplaryHeight: 0,
 		rowsx: [],
-		headerSlice: []
+		headerSlice: [],
 	}),
 	watch: {
 		rows(newValue) {
@@ -100,6 +105,9 @@ export default {
 		},
 		totalPages() {
 			return Math.ceil(this.rows.length / this.itemsPerPage)
+		},
+		availableDates() {
+			return this.findDatesRange()
 		}
 	},
 	methods: {
@@ -125,6 +133,26 @@ export default {
 						this.rowsx = sort.sortDates(this.rowsx, header.field, { method: 'desc' })
 				}
 			}
+		},
+		filterEvent(val) {
+			if (val == null) {
+				this.defaultHeaders()
+				this.rowsx = this.rows
+			}
+			if (typeof val == "object") {
+				this.rowsx = this.filterForPeriod(this.rowsx, val.start, val.end)
+				console.log(val)
+			}
+			if (typeof val == "number") {
+				const today = new Date()
+				this.rowsx = this.filterForPeriod(this.rowsx, this.moment(today).subtract(7, 'days').toDate(), today)
+				console.log(val)	
+			}
+		},
+		filterForPeriod(array, start, end) {
+			console.log(array, start, end)
+			// const dateIndex = this.headerSlice.find(el => el.sort == 'date')
+			return array
 		},
 		changeSortStatus(elIndex, status) {
 			this.headerSlice.map(el => el.sortStatus = 'none')
@@ -160,6 +188,19 @@ export default {
             this.headers.forEach(el => {
                 this.headerSlice.push({ label: el.label, field: el.field, sort: el.sort, meta: el.meta, style: el.style, sortStatus: 'none' })
             })
+		},
+		findDatesRange() {
+			const dateIndex = this.headerSlice.find(el => el.sort == 'date')
+			const availableRange = {
+				start: null,
+				end: null
+			}
+			if (dateIndex != undefined && this.rows.length > 0) {
+				const sortedArray = sort.sortDates(this.rows, dateIndex.field, {method: 'asc'})
+				availableRange.start = this.moment(sortedArray[0][dateIndex.field]).toDate()
+				availableRange.end = this.moment(sortedArray[sortedArray.length -1][dateIndex.field]).toDate()
+			}
+			return availableRange
 		}
 	},
 	mounted() {
