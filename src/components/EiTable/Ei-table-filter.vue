@@ -6,7 +6,7 @@
 			</div>
 			<div class="filter">
 				<span class="label">View last</span>
-				<ei-group-buttons v-model="activeItem" inactive>
+				<ei-group-buttons v-model="activeItem">
 					<ei-group-item>7 days</ei-group-item>
 					<ei-group-item>30 days</ei-group-item>
 				</ei-group-buttons>
@@ -32,7 +32,7 @@
                         {{ format(dragValue ? dragValue.end : dateRange.end, 'MMM D') }}
                     </div>
 				</ei-date-picker>
-                <ei-button class="default-btn" flat @click="$emit('filter', null)">Default</ei-button>
+                <ei-button class="default-btn" flat @click="defaultFilter">Default</ei-button>
 			</div>
 		</div>
 		<div class="border" @click="expand">
@@ -62,7 +62,7 @@ export default {
     },
 	data: () => ({
         dragValue: null,
-		activeItem: 0,
+		activeItem: -1,
 		isEpxanded: false,
         dateRange: {
             start: null,
@@ -71,10 +71,19 @@ export default {
     }),
     watch: {
         activeItem(val) {
-            this.$emit('filter', val)
+			if (val != -1) {
+				this.dateRange = {
+					start: null,
+					end: null,
+				}
+				this.$emit('filter', val)
+			}
         },
         dateRange(val) {
-            this.$emit('filter', val)
+			if (val.start != null && val.end != null) {
+				this.activeItem = -1
+				this.$emit('filter', val)	
+			}
         }
     },
 	computed: {
@@ -97,6 +106,14 @@ export default {
 			}
 
 			this.isEpxanded = !this.isEpxanded
+		},
+		defaultFilter() {
+			this.dateRange = {
+				start: null,
+				end: null,
+			}
+			this.activeItem = -1
+			this.$emit('filter', null)
 		}
 	},
 	mounted() {}
