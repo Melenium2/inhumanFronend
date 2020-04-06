@@ -7,18 +7,18 @@
 		</div>
         <div class="apiusage-top">
             <ei-form class="apiusage-top-chart">
-                <div slot="header">
+                <div ref="chart-header" slot="header">
                     Chart
                 </div>
                 <div slot="body">
-                    <div class="chart-filter-btns">
+                    <div ref="btns" class="chart-filter-btns">
                         <ei-group-buttons v-model="activeFilter">
                             <ei-group-item>Day</ei-group-item>
                             <ei-group-item>Week</ei-group-item>
                             <ei-group-item>Month</ei-group-item>
                         </ei-group-buttons>
                     </div>
-                    <line-chart ref="chart" class="chart" :chartData="userChartData" :options="chartConfig.userChart.options" :style="{ height: `${chartHeight}px` }" />
+                    <line-chart  class="chart" :chartData="userChartData" :options="chartConfig.userChart.options" :style="{ height: `${chartHeight}px` }" />
                 </div>
             </ei-form>
             <div class="apiusage-top-stat">
@@ -66,6 +66,13 @@
 							}
 						]"
                         :rows="test_TableRows"
+                        :fixColumns="[
+                            '15%',
+                            '45%',
+                            '15%',
+                            '17.5%',
+                            '17.5%'
+                        ]"
                     />
                 </div>
             </ei-form>
@@ -208,11 +215,16 @@ export default {
         },
         resizeWindow() {
 			this.$nextTick(() => {
-                const groupButtons = 51.1
-                const header = 24 + 41.6
-                const padding = header + groupButtons
-                this.statBlocksSize = this.$refs['stat-body'].clientWidth/2 - 32
-                this.chartHeight = this.$refs['stat-body'].clientHeight - padding
+                if (window.innerWidth > 991) {
+                    const groupButtons = this.$refs.btns.clientHeight
+                    const header = this.$refs['chart-header'].clientHeight + 41.6
+                    const padding = header + groupButtons
+                    this.statBlocksSize = this.$refs['stat-body'].clientWidth/2 - 32
+                    this.chartHeight = this.$refs['stat-body'].clientHeight - padding
+                } else {
+                    this.chartHeight = 350
+                    this.statBlocksSize = 0
+                }
 			})
         },
         randomDate(start, end) {

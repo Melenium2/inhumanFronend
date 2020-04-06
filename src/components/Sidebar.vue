@@ -2,7 +2,7 @@
 	<div class="ei-sidebar ei-sidebar-fixed ei-sidebar-full" :class="{'ei-sidebar-mobile-active': triggered}">
 		<div class="ei-sidebar-header">
 			<div class="wrapper">
-				<img class="ei-sidebar-header-logo" :src="require('@/assets/images/Aiura_Logo.png')" />
+				<img class="ei-sidebar-header-logo" :src="$store.getters['GET_THEME'] == 'dark-theme' ? require('@/assets/images/white.png') : require('@/assets/images/black.png')" />
 				<i class="trigger" @click="$emit('trigger')">
 					<awesome-icon icon="caret-left" size="2x"></awesome-icon>
 				</i>

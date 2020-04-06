@@ -23,7 +23,7 @@
                 display: flex;
                 flex-wrap: wrap;
 
-                .stat-body-block {
+                &-block {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -33,6 +33,9 @@
                     box-shadow: 0 3px 12px 1px rgba(44, 55, 130, 0.05);
                     border-radius: 3px;
                     margin: .5rem;
+                    user-select: none;
+                    transition: transform .3s, color .3s linear;
+                    
 
                     .header {
                         display: flex;
@@ -71,6 +74,37 @@
                             }
                         }
                     }
+
+                    &:hover {
+                        transform: translateY(-1px);
+                        .header > .text {
+                            color: $font-color-purple;
+                        }
+                    }
+
+                    @media (min-width: 990px) and (max-width: 1440px) {
+                        .header > .text {
+                            font-size: 0.6rem;
+                            .count {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+
+                    @media (max-width: 990px) {
+                        width: 180px !important; 
+                        height: 180px !important;
+                    }
+
+                    @media (max-width: 769px) {
+                        width: 240px !important; 
+                        height: 240px !important;
+                    }
+
+                    @media (min-width: 319px) and (max-width: 550px) {
+                        width: 180px !important; 
+                        height: 180px !important;
+                    }
                 }
             }
         }
@@ -86,6 +120,26 @@
             width: 100%;
             .table {
                 height: 60vh;
+            }
+        }
+    }
+
+    @media (max-width: 990px) {
+        &-top {
+            flex-direction: column;
+            margin-bottom: calc(2rem - .5rem);
+            &-chart {
+                width: 100%;
+            }
+
+            &-stat {
+                margin-top: calc(2rem - .5rem);
+                width: 100%;
+                .stat-body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

@@ -83,6 +83,13 @@
 							}
 						]"
 						:rows="test_tableRows"
+						:fixColumns="[
+                            '15%',
+                            '45%',
+                            '15%',
+                            '17.5%',
+                            '17.5%'
+                        ]"
 					/>
 				</div>
 			</ei-form>

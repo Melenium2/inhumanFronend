@@ -53,15 +53,3 @@ export default {
     },
     shuffle: (array) => array.sort(() => Math.random() - 0.5)
 }
-
-
-// let sortedArray = []
-//         if (sortParams.compareFn != undefined) sortedArray = array.sort(sortParams.compareFn)
-//         else if (sortParams.method != undefined) {
-//             if (sortParams.method == 'asc') 
-//                 sortedArray = array.sort((el1, el2) => el1[field].localeCompare(el2[field]))
-//             else (sortParams.method == 'desc') 
-//                 sortedArray = array.sort((el1, el2) => el2[field].localeCompare(el1[field]))
-//         }
-
-//         return sortedArray
